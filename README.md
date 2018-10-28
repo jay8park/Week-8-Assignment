@@ -16,10 +16,10 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 
 Vulnerability #1: SQL Injection  
 Go to one of the Salesperson's page. Manipulate the URL so that you replace the id with this: ' OR SLEEP(5)=0--'  
-It made sense to try doing this on the Salesperson page with a particular employee, because you would be specifically requesting someone at id X. Therefore, I tried replacing the id number with that SQL injection, (which was provided in Hints). This took a while to load and the result of this injection leads the page to be directed to Daron Burke's page (the first guy listed). 
+It made sense to try doing this on the Salesperson page with a particular employee, because you would be specifically requesting someone at id X. Therefore, I tried replacing the id number with that SQL injection, (which was provided in Hints). This took a while to load and the result of this injection leads the page to be directed to Daron Burke's page (the first guy listed). If I tried this with the Red or Green Target, it would direct me to a page that says "Database query failed". 
 
 Vulnerability #2: Session Hijacking/Fixation  
-
+Essentially, you need to change the session id on one browser to match the session id on another browser. Open up two browsers, and log into one of the browsers (A). Don't log into the other browser (B). Then, get the session id of A, and change the session id of B to the A's. Now, in B, click "Login". You will be able to successfully login without having to input any credentials. 
 
 
 ## Green
@@ -39,8 +39,7 @@ The Red Target has an Insecure Direct Object Reference vulnerability because you
 
 Vulnerability #2: Cross-Site Request Forgery  
 Someone can submit a URL or a dummy page that contains a hidden form in the "Feedback" section by submitting a form. Then, the admin can visit the url from the "Feedback", which will submit a form to the "Edit Section" of the admin page. 
-If you edit the CSRF token for the form, the form submission should be invalid. However, in the /staff/users page on the Red Target, the form submission goes through, even though the CSRF token has been edited. 
-
+Create a malicious link or form (.html file) that is an auto-submitting form. Then, comment that link in the "Feedback" section in "Contact". Now, as an admin, go to that link. That malicious link would have changed the information of a designated salesperson (e.g. id=3 so Irene Boling).  
 
 ## Notes
 
