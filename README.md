@@ -16,7 +16,7 @@ Each version of the site has been given two of the six vulnerabilities. (In othe
 
 Vulnerability #1: SQL Injection  
 Go to one of the Salesperson's page. Manipulate the URL so that you replace the id with this: ' OR SLEEP(5)=0--'  
-It made sense to try doing this on the Salesperson page with a particular employee, because you would be specifically requesting someone at id X. Therefore, I tried replacing the id number with that SQL injection, (which was provided in Hints). This took a while to load and the result of this injection leads the page to be directed to Daron Burke's page (the first guy listed). If I tried this with the Red or Green Target, it would direct me to a page that says "Database query failed".  
+It made sense to try doing this on the Salesperson page with a particular employee, because you would be specifically requesting someone at id X. Therefore, I tried replacing the id number with that SQL injection, (which was provided in Hints). This took a while to load and the result of this injection leads the page to be directed to Daron Burke's page (the first guy listed). If I tried this with the Red or Green Target, it would direct me to a page that says "Database query failed" or redirects me to the main salesperson page.  
 <img src="Week 8(3).gif" width="800">
 
 Vulnerability #2: Session Hijacking/Fixation  
