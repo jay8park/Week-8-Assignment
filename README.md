@@ -28,7 +28,8 @@ Vulnerability #1: Username Enumeration
 User Enumeration is the process of enumerating all possible usernames in an application, server, etc. The strategy is to enter random usernames and see what error-handling message you get. The Username Enumeration vulnerability was found in the Green Tagret because the only in the Green Target Login page, you get an unbolded alert when you enter an invalid username but get a bolded alert when you enter a valid username with wrong password. For the other target, the alerts are all the same.   
 
 Vulnerability #2: Cross-Site Scripting  
-A user can go to the "Contact" tab and fill out a form with JavaScript in the "Feedback" section of the form. Once you login as admin and check and checks the feedback, a JavaScript alert will pop up. 
+This vulnerability can be exploited through the "Feedback" section. A user can go to the "Contact" tab and fill out a form in the "Feedback" section with a malivious JavaScript code: <script>alert('Mallory found the XSS!');</script>  
+Once you login as admin and check the feedback, a JavaScript alert will pop up. 
 
 
 ## Red
@@ -37,7 +38,7 @@ Vulnerability #1: Insecure Direct Object Reference
 The Red Target has an Insecure Direct Object Reference vulnerability because you can see any account. On the salesperson page, you are able to access information about a salesperson that should not be accessible to the public. By changing the id in the URL, you can access salesperson information that you shouldn't be able to access. (Note: try a bunch of id numbers, particularly 10 and 11. Or, you can figure out which one to check but logging in and checking salespersons information).When I tried manipulating the URL, I was redirected to the main "Find a Salesperson" page for the other Targets.  
 
 Vulnerability #2: Cross-Site Request Forgery  
-
+Someone can submit a URL or a dummy page that contains a hidden form in the "Feedback" section by submitting a form. Then, the admin can visit the url from the "Feedback", which will submit a form to the "Edit Section" of the admin page. 
 If you edit the CSRF token for the form, the form submission should be invalid. However, in the /staff/users page on the Red Target, the form submission goes through, even though the CSRF token has been edited. 
 
 
