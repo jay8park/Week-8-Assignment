@@ -26,6 +26,7 @@ Essentially, you need to change the session id on one browser to match the sessi
 
 Vulnerability #1: Username Enumeration  
 User Enumeration is the process of enumerating all possible usernames in an application, server, etc. The strategy is to enter random usernames and see what error-handling message you get. The Username Enumeration vulnerability was found in the Green Tagret because the only in the Green Target Login page, you get an unbolded alert when you enter an invalid username but get a bolded alert when you enter a valid username with wrong password. For the other target, the alerts are all the same.   
+<img src="Week 8(1)" width="800">
 
 Vulnerability #2: Cross-Site Scripting  
 This vulnerability can be exploited through the "Feedback" section. A user can go to the "Contact" tab and fill out a form in the "Feedback" section with a malivious JavaScript code: <script>alert('Mallory found the XSS!');</script>  
